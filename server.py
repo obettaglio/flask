@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, flash, redirect
 from flask_debugtoolbar import DebugToolbarExtension
 
 
@@ -47,6 +47,24 @@ def submit_application():
                            lastname=lastname,
                            salary=salary,
                            job=job)
+
+
+# these two routes are extra
+# flash messages aren't working
+@app.route('/login')
+def login_page():
+    """Redirect to home page and flash failure message to user."""
+
+    flash("Sorry, we are still implementing the Login feature. Coming soon!")
+    return redirect('/')
+
+
+@app.route('/contact')
+def contact_page():
+    """Redirect to home page and flash failure message to user."""
+
+    flash("Sorry, we are still implementing the Contact Page feature. Coming soon!")
+    return redirect('/')
 
 
 if __name__ == "__main__":
