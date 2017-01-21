@@ -20,6 +20,8 @@ def show_homepage():
 def show_app_form():
     """Display application form."""
 
+    # pass list of possible jobs here
+
     return render_template("application-form-flask.html")
 
 
