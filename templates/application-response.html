@@ -1,13 +1,10 @@
-<!doctype html>
-<html>
-<head>
-    <title>Application Response</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-<!-- fill this in -->
+{% block title %}Application Response{% endblock %}
 
-</body>
-</html>
+{% block content %}
 
-<!-- jinja response including requested variables from application form page -->
+<!-- jinja response with requested variables from application form page -->
+<p>Thank you, {{ firstname }} {{ lastname }}, for applying to be a {{ job }}. Your minimum salary requirement is ${{ salary }}.</p>
+
+{% endblock %}

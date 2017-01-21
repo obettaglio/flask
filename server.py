@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 # Required to use Flask sessions and the debug toolbar
-app.secret_key = "ABC"
+app.secret_key = "dsfgjhklkfskdghjklo8t7ir6ey"    # /eyebrow waggle
 
 
 @app.route('/')
@@ -20,9 +20,33 @@ def show_homepage():
 def show_app_form():
     """Display application form."""
 
-    # pass list of possible jobs here
+    # pass list of possible jobs
+    all_jobs = ["Software Engineer", "QA Engineer", "Product Manager"]
 
-    return render_template("application-form-flask.html")
+    return render_template("application-form.html",
+                           all_jobs=all_jobs)
+
+
+@app.route('/application-success')
+def submit_application():
+    """Retrieve user responses from application form and display success message."""
+
+    firstname = request.args.get('firstname')
+    lastname = request.args.get('lastname')
+    job = request.args.get('job')
+    salary = float(request.args.get('salary'))
+
+    if not salary.is_integer():
+        salary = "{:,.2f}".format(salary)
+    else:
+        salary = int(salary)
+        salary = "{:,}".format(salary)
+
+    return render_template("application-response.html",
+                           firstname=firstname,
+                           lastname=lastname,
+                           salary=salary,
+                           job=job)
 
 
 if __name__ == "__main__":
