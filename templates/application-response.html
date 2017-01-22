@@ -5,6 +5,13 @@
 {% block content %}
 
 <!-- jinja response with requested variables from application form page -->
-<p>Thank you, {{ firstname }} {{ lastname }}, for applying to be a {{ job }}. Your minimum salary requirement is ${{ salary }}.</p>
+<p>Thank you, {{ firstname }} {{ lastname }}, for applying for the position of {{ job }} at Squysh. Your minimum salary requirement is ${{ salary }}.</p>
+
+<p>We have received your application.</p>
+
+<!-- <p><a href="/">Return to Career Page</a> -->
+<div class="btn-group" role="group" aria-label="...">
+  <button type="button" class="btn btn-default"><a href="/">Return to Career Page</a></button>
+</div>
 
 {% endblock %}
